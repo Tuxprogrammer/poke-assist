@@ -36,6 +36,16 @@
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
       }
 
+      .header-link {
+        color: #f7fafc;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .header-link:hover {
+        color: #63b3ed;
+      }
+
       .header p {
         color: #cbd5e0;
         font-size: 1.1rem;
@@ -174,6 +184,149 @@
         font-style: italic;
       }
 
+      .navigation {
+        margin-bottom: 1.5rem;
+      }
+
+      .back-button {
+        background: #4a5568;
+        color: #e2e8f0;
+        border: 2px solid #718096;
+        border-radius: 10px;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .back-button:hover {
+        background: #63b3ed;
+        border-color: #63b3ed;
+        color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(99, 179, 237, 0.3);
+      }
+
+      .back-button-container {
+        text-align: center;
+      }
+
+      .red-back-button {
+        background: #e53e3e !important;
+        color: #ffffff !important;
+        border-color: #e53e3e !important;
+      }
+
+      .red-back-button:hover {
+        background: #c53030 !important;
+        border-color: #c53030 !important;
+        color: #ffffff !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(197, 48, 48, 0.3);
+      }
+
+      .search-history-container {
+        background: #4a5568;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        margin-bottom: 2rem;
+      }
+
+      .history-title {
+        color: #f7fafc;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .history-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .history-item {
+        background: #2d3748;
+        border: 2px solid #718096;
+        border-radius: 10px;
+        padding: 1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-align: center;
+      }
+
+      .history-item:hover {
+        background: #63b3ed;
+        border-color: #63b3ed;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(99, 179, 237, 0.3);
+      }
+
+      .history-pokemon-name {
+        color: #e2e8f0;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        text-transform: capitalize;
+      }
+
+      .history-pokemon-generation {
+        color: #a0aec0;
+        font-size: 0.8rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        opacity: 0.8;
+        letter-spacing: 0.5px;
+      }
+
+      .history-pokemon-types {
+        display: flex;
+        justify-content: center;
+        gap: 0.25rem;
+        flex-wrap: wrap;
+        margin-top: 0.5rem;
+      }
+
+      .history-type-badge {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        border-radius: 12px;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        min-width: 2.5rem;
+        text-align: center;
+      }
+
+      .clear-history-button {
+        background: #e53e3e;
+        color: #ffffff;
+        border: 2px solid #e53e3e;
+        border-radius: 10px;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: block;
+        margin: 0 auto;
+        min-width: 150px;
+      }
+
+      .clear-history-button:hover {
+        background: #c53030;
+        border-color: #c53030;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(197, 48, 48, 0.3);
+      }
+
       .generation-selector {
         text-align: center;
         margin-bottom: 1.5rem;
@@ -196,9 +349,9 @@
 
       .generation-btn {
         padding: 0.5rem 0.75rem;
-        border: 2px solid #ffffff;
+        border: 2px solid #4a5568;
         border-radius: 20px;
-        background: #2d3748;
+        background: #1a202c;
         color: #ffffff;
         font-size: 0.85rem;
         font-weight: 600;
@@ -209,42 +362,48 @@
       }
 
       .generation-btn:hover {
-        border-color: #ffffff;
+        border-color: #4a5568;
         color: #ffffff;
         transform: translateY(-1px);
       }
 
       .generation-btn.active {
-        background: #3182ce;
-        border-color: #3182ce;
+        background: #1a202c;
+        border-color: #ffffff;
         color: #ffffff;
-        box-shadow: 0 4px 12px rgba(49, 130, 206, 0.3);
+        box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+        transform: scale(1.1);
+        border-width: 2px;
+        font-weight: bold;
+        z-index: 10;
+        position: relative;
       }
 
       .generation-btn.active:hover {
-        background: #2c5282;
-        border-color: #2c5282;
+        background: #2d3748;
+        border-color: #ffffff;
+        transform: scale(1.1);
       }
 
       /* Generation-specific gradients */
       .generation-btn.gen-1 {
         background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
-        border-color: #ffffff;
+        border-color: #4a5568;
       }
 
       .generation-btn.gen-1:hover {
         background: linear-gradient(135deg, #ff5252 0%, #26c6da 100%);
-        border-color: #ffffff;
+        border-color: #4a5568;
       }
 
       .generation-btn.gen-2 {
         background: linear-gradient(135deg, #ffd700 0%, #c0c0c0 100%);
-        border-color: #ffffff;
+        border-color: #4a5568;
       }
 
       .generation-btn.gen-2:hover {
         background: linear-gradient(135deg, #ffcc02 0%, #b0b0b0 100%);
-        border-color: #ffffff;
+        border-color: #4a5568;
       }
 
       .generation-btn.gen-3 {
@@ -254,7 +413,7 @@
           #0066cc 50%,
           #00cc66 100%
         );
-        border-color: #ffffff;
+        border-color: #4a5568;
       }
 
       .generation-btn.gen-3:hover {
@@ -264,47 +423,47 @@
           #004499 50%,
           #00aa55 100%
         );
-        border-color: #ffffff;
+        border-color: #4a5568;
       }
 
       .generation-btn.gen-orre {
         background: linear-gradient(135deg, #dc143c 0%, #4b0082 100%);
-        border-color: #ffffff;
+        border-color: #4a5568;
       }
 
       .generation-btn.gen-orre:hover {
         background: linear-gradient(135deg, #b71c1c 0%, #6a1b9a 100%);
-        border-color: #ffffff;
+        border-color: #4a5568;
       }
 
       .generation-btn.gen-4 {
         background: linear-gradient(135deg, #87ceeb 0%, #ffc0cb 100%);
-        border-color: #ffffff;
+        border-color: #4a5568;
       }
 
       .generation-btn.gen-4:hover {
         background: linear-gradient(135deg, #4682b4 0%, #ff91a4 100%);
-        border-color: #ffffff;
+        border-color: #4a5568;
       }
 
       .generation-btn.gen-5 {
         background: linear-gradient(135deg, #2c3e50 0%, #ecf0f1 100%);
-        border-color: #ffffff;
+        border-color: #4a5568;
       }
 
       .generation-btn.gen-5:hover {
         background: linear-gradient(135deg, #1a252f 0%, #d5dbdb 100%);
-        border-color: #ffffff;
+        border-color: #4a5568;
       }
 
       .generation-btn.gen-6 {
         background: linear-gradient(135deg, #0066cc 0%, #ff6600 100%);
-        border-color: #ffffff;
+        border-color: #4a5568;
       }
 
       .generation-btn.gen-6:hover {
         background: linear-gradient(135deg, #004499 0%, #cc4400 100%);
-        border-color: #ffffff;
+        border-color: #4a5568;
       }
 
       .generation-btn.gen-7 {
@@ -314,7 +473,7 @@
           #e5de44 50%,
           #1c375c 100%
         );
-        border-color: #ffffff;
+        border-color: #4a5568;
       }
 
       .generation-btn.gen-7:hover {
@@ -324,27 +483,27 @@
           #ef810e 50%,
           #151633 100%
         );
-        border-color: #ffffff;
+        border-color: #4a5568;
       }
 
       .generation-btn.gen-8 {
         background: linear-gradient(135deg, #00a1e9 0%, #bf004f 100%);
-        border-color: #ffffff;
+        border-color: #4a5568;
       }
 
       .generation-btn.gen-8:hover {
         background: linear-gradient(135deg, #0080b8 0%, #9a003d 100%);
-        border-color: #ffffff;
+        border-color: #4a5568;
       }
 
       .generation-btn.gen-9 {
         background: linear-gradient(135deg, #ff4500 0%, #9932cc 100%);
-        border-color: #ffffff;
+        border-color: #4a5568;
       }
 
       .generation-btn.gen-9:hover {
         background: linear-gradient(135deg, #cc3300 0%, #7a2a99 100%);
-        border-color: #ffffff;
+        border-color: #4a5568;
       }
 
       /* Override active state for generation buttons */
@@ -358,9 +517,9 @@
       .generation-btn.active.gen-7,
       .generation-btn.active.gen-8,
       .generation-btn.active.gen-9 {
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3),
-          0 0 0 3px rgba(255, 255, 255, 0.2);
-        transform: translateY(-2px);
+        border-color: #ffffff !important;
+        box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+        transform: scale(1.1);
       }
     </style>
   </head>
