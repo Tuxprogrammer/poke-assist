@@ -10,7 +10,7 @@
  *   - Includes retroactive Fairy typing for Cottonee/Whimsicott (Gen 6+)
  * @count 154 Pokémon (including forms)
  */
-import type { Pokemon } from './pokemonData';
+import type { Pokemon } from '../pokemonData';
 
 export const pokemonBW: Pokemon[] = [
   { id: 494, name: 'victini', types: ['psychic', 'fire'] },

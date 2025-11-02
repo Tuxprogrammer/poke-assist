@@ -10,7 +10,7 @@ import { pokemonXY } from './pokemon/pokemonXY';
 import { pokemonSM } from './pokemon/pokemonSM';
 import { pokemonSwSh } from './pokemon/pokemonSwSh';
 import { pokemonSV } from './pokemon/pokemonSV';
-import type { Pokemon } from './pokemon/pokemonData';
+import type { Pokemon } from './pokemonData';
 
 /**
  * Complete Pokémon list containing all Pokémon from all generations and regions

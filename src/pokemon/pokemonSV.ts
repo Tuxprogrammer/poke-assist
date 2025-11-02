@@ -11,7 +11,7 @@
  *   - Open world gameplay with three storylines
  * @count 107 Pokémon (including forms)
  */
-import type { Pokemon } from './pokemonData';
+import type { Pokemon } from '../pokemonData';
 
 export const pokemonSV: Pokemon[] = [
   { id: 906, name: 'sprigatito', types: ['grass'] },

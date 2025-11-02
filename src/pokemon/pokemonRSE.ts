@@ -11,7 +11,7 @@
  *   - Shadow Pokémon mechanic (Colosseum/XD games)
  * @count 167 Pokémon (including forms and Shadow variants)
  */
-import type { Pokemon } from './pokemonData';
+import type { Pokemon } from '../pokemonData';
 export const pokemonRSE: Pokemon[] = [
   { id: 144.2, name: 'articuno-shadow', types: ['shadow'], form: 'Shadow' },
   { id: 145.2, name: 'zapdos-shadow', types: ['shadow'], form: 'Shadow' },
