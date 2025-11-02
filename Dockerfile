@@ -30,6 +30,9 @@ COPY --from=build /app/dist /usr/share/nginx/html
 # Copy VERSION file to nginx root for runtime access
 COPY --from=build /app/VERSION /usr/share/nginx/html/VERSION
 
+# Clean up .git directory if copied
+RUN rm -rf /app/.git
+
 # Copy nginx configuration (optional - using default)
 # COPY nginx.conf /etc/nginx/nginx.conf
 
