@@ -32,7 +32,7 @@
 
         <!-- Search History Section -->
         <div v-if="searchHistory.length > 0" class="search-history-container">
-            <h3 class="history-title">Recent</h3>
+            <h3 class="history-title">🕒 Recent</h3>
             <div class="history-grid">
                 <div v-for="historyItem in searchHistory" :key="historyItem.pokemon.id" class="history-item"
                     @click="selectHistoryPokemon(historyItem)">

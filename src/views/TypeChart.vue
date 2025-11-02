@@ -2,7 +2,7 @@
     <div>
         <div class="navigation">
             <div class="back-button-container">
-                <router-link to="/" class="back-button">← Back to Search</router-link>
+                <button @click="goBackToSearch" class="back-button red-back-button">← Back</button>
             </div>
         </div>
 
@@ -79,6 +79,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 import {
     type PokemonType,
     type Generation,
@@ -86,6 +87,7 @@ import {
     getTypeEffectiveness
 } from '../pokemonData';
 
+const router = useRouter();
 const selectedGeneration = ref<Generation>(9);
 
 // Available generations for the selector
@@ -142,6 +144,10 @@ function getTypeColor(type: PokemonType): string {
 
 function updateGeneration(generation: Generation): void {
     selectedGeneration.value = generation;
+}
+
+function goBackToSearch(): void {
+    router.push({ name: 'Home' });
 }
 
 function getEffectivenessSymbol(attackingType: PokemonType, defendingType: PokemonType): string {
