@@ -10,17 +10,51 @@
     <router-view />
 
     <!-- Version display in bottom-right corner -->
-    <VersionDisplay />
+    <VersionDisplay :updateAvailable="updateAvailable" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import VersionDisplay from './components/VersionDisplay.vue';
 import { getAppVersion } from './utils/version';
 
 const SEARCH_HISTORY_KEY = 'poke-assist-search-history';
 const APP_VERSION_KEY = 'poke-assist-app-version';
+
+const updateAvailable = ref(false);
+
+async function checkForUpdates(): Promise<void> {
+  try {
+    // Get current version (clean version without -dirty suffix)
+    const currentVersionRaw = await getAppVersion();
+    const currentVersion = currentVersionRaw.replace(/-dirty$/i, '').toLowerCase();
+
+    // Fetch the latest commit hash from the main branch
+    const response = await fetch('https://api.github.com/repos/Tuxprogrammer/poke-assist/commits/main', {
+      headers: {
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    });
+
+    if (!response.ok) {
+      console.warn('Failed to check for updates:', response.status);
+      return;
+    }
+
+    const commitData = await response.json();
+    const latestCommitHash = commitData.sha?.substring(0, 8).toLowerCase();
+
+    if (latestCommitHash && currentVersion !== latestCommitHash) {
+      updateAvailable.value = true;
+      console.log(`Update available: ${currentVersion} → ${latestCommitHash}`);
+    }
+  } catch (error) {
+    console.warn('Failed to check for updates:', error);
+  }
+}
+
+
 
 onMounted(async () => {
   try {
@@ -40,6 +74,9 @@ onMounted(async () => {
       // Store new version
       localStorage.setItem(APP_VERSION_KEY, currentVersion);
     }
+
+    // Check for available updates
+    await checkForUpdates();
   } catch (error) {
     console.warn('Failed to check app version:', error);
   }
