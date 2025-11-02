@@ -164,6 +164,40 @@ export default {
             if (!selectedPokemon.value) return [1, 2, 3, 'orre', 4, 5, 6, 7, 8, 9];
 
             const pokemon = selectedPokemon.value;
+
+            // Handle special forms with restricted generation availability
+
+            // Shadow forms (Colosseum/XD exclusive)
+            if (pokemon.form === 'Shadow') {
+                return ['orre'];
+            }
+
+            // Regional variants
+            if (pokemon.region === 'Hisui') {
+                return [8, 9]; // Legends: Arceus (Gen 8) onwards
+            }
+            if (pokemon.region === 'Galar') {
+                return [8, 9]; // Sword/Shield onwards
+            }
+            if (pokemon.region === 'Alola') {
+                return [7, 8, 9]; // Sun/Moon onwards
+            }
+            if (pokemon.region === 'Paldea') {
+                return [9]; // Scarlet/Violet only
+            }
+
+            // Special battle forms
+            if (pokemon.form?.startsWith('Mega Evolution') || pokemon.form === 'Primal Reversion') {
+                return [6]; // Generation 6 only (X/Y, Omega Ruby/Alpha Sapphire)
+            }
+            if (pokemon.form === 'Ash-Greninja') {
+                return [6, 9]; // Generation 7 onwards
+            }
+            if (['Crowned Sword', 'Crowned Shield', 'Rapid Strike Style'].includes(pokemon.form || '')) {
+                return [8, 9]; // Generation 8 onwards
+            }
+
+            // For regular forms, use the original logic
             const generations: Generation[] = [];
 
             // Determine the first generation this Pokémon appeared in based on ID
@@ -213,7 +247,7 @@ export default {
         });
 
         function loadPokemon(): void {
-            const pokemonId = parseInt(route.params.id as string);
+            const pokemonId = parseFloat(route.params.id as string);
             if (pokemonId) {
                 selectedPokemon.value = pokemonList.find(p => p.id === pokemonId) || null;
 
