@@ -26,9 +26,9 @@ const updateAvailable = ref(false);
 
 async function checkForUpdates(): Promise<void> {
   try {
-    // Get current version (clean version without -dirty suffix)
+    // Get current version
     const currentVersionRaw = await getAppVersion();
-    const currentVersion = currentVersionRaw.replace(/-dirty$/i, '').toLowerCase();
+    const currentVersion = currentVersionRaw.toLowerCase().replace(/-dirty$/i, '');
 
     // Fetch the latest commit hash from the main branch
     const response = await fetch('https://api.github.com/repos/Tuxprogrammer/poke-assist/commits/main', {

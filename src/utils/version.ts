@@ -2,28 +2,10 @@ import { ref } from 'vue';
 
 // Vite global define
 declare const __APP_VERSION__: string;
-declare const __GIT_DIRTY__: boolean;
 
 const version = ref<string>('unknown');
 
-/**
- * Check if the git repository has uncommitted changes
- */
-async function checkGitDirty(): Promise<boolean> {
-    try {
-        // First try build-time injection
-        if (typeof __GIT_DIRTY__ !== 'undefined') {
-            return __GIT_DIRTY__;
-        }
 
-        // For development, try to detect dirty state through available methods
-        // This is a fallback that checks for common development indicators
-        const isDev = import.meta.env.DEV;
-        return isDev; // In dev mode, assume dirty
-    } catch {
-        return false;
-    }
-}
 
 /**
  * Gets the application version from various sources:
@@ -32,14 +14,9 @@ async function checkGitDirty(): Promise<boolean> {
  * - Fallback: package.json version
  */
 export async function getAppVersion(): Promise<string> {
-    if (version.value !== 'unknown') {
-        const isDirty = await checkGitDirty();
-        version.value = version.value.toUpperCase();
-        const versionStr = isDirty && !version.value.includes('-dirty')
-            ? `${version.value}-dirty`
-            : version.value;
-        return versionStr;
-    }
+    // if (version.value !== 'unknown') {
+    //     return version.value.toUpperCase();
+    // }
 
     let baseVersion = '';
 
@@ -65,13 +42,7 @@ export async function getAppVersion(): Promise<string> {
             }
         }
 
-        // Check if git is dirty and append -dirty if needed
-        const isDirty = await checkGitDirty();
-        version.value = version.value.toUpperCase();
-        version.value = isDirty && !baseVersion.includes('-dirty')
-            ? `${baseVersion}-dirty`
-            : baseVersion;
-
+        version.value = baseVersion;
         return version.value.toUpperCase();
     } catch (error) {
         console.warn('Unable to determine app version:', error);

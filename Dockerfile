@@ -16,7 +16,12 @@ RUN npm ci
 COPY . .
 
 # Get git version and create VERSION file
-RUN git rev-parse --short HEAD > VERSION || echo "unknown" > VERSION
+RUN git rev-parse --short=8 HEAD > VERSION || echo "unknown" > VERSION
+
+# Append -dirty to version if there are untracked changes
+RUN if [ -n "$(git status --porcelain)" ]; then \
+    sed -i 's/$/-dirty/' VERSION; \
+    fi
 
 # Build the application
 RUN npm run build
@@ -29,9 +34,6 @@ COPY --from=build /app/dist /usr/share/nginx/html
 
 # Copy VERSION file to nginx root for runtime access
 COPY --from=build /app/VERSION /usr/share/nginx/html/VERSION
-
-# Clean up .git directory if copied
-RUN rm -rf /app/.git
 
 # Copy nginx configuration (optional - using default)
 # COPY nginx.conf /etc/nginx/nginx.conf

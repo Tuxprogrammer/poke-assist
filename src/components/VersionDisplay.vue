@@ -21,8 +21,7 @@ const displayVersion = ref('...');
 const isLoading = ref(true);
 
 const githubUrl = computed(() => {
-    // Remove -dirty suffix for GitHub URL to avoid broken links
-    const cleanVersion = displayVersion.value.toLowerCase().replace(/-dirty$/, '');
+    const cleanVersion = displayVersion.value.toLowerCase();
     return `https://github.com/tuxprogrammer/poke-assist/tree/${cleanVersion}`;
 });
 
