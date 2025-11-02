@@ -11,7 +11,7 @@
  *   - Totem Pokémon with stat boosts
  * @count 85 Pokémon (including forms and Alolan variants)
  */
-import type { Pokemon } from './pokemon/pokemonData';
+import type { Pokemon } from './pokemonData';
 
 export const pokemonSM: Pokemon[] = [
   {

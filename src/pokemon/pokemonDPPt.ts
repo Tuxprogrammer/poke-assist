@@ -10,7 +10,7 @@
  *   - Origin forms for legendary Pokémon
  * @count 105 Pokémon (including forms)
  */
-import type { Pokemon } from './pokemon/pokemonData';
+import type { Pokemon } from './pokemonData';
 
 export const pokemonDPPt: Pokemon[] = [
   { id: 387, name: 'turtwig', types: ['grass'] },

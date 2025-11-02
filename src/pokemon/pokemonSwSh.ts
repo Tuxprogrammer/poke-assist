@@ -11,7 +11,7 @@
  *   - New evolution methods and Noble Pokémon
  * @count 93 Pokémon (including forms)
  */
-import type { Pokemon } from './pokemon/pokemonData';
+import type { Pokemon } from './pokemonData';
 
 export const pokemonSwSh: Pokemon[] = [
   { id: 52.2, name: 'meowth-galarian', types: ['steel'], region: 'Galar' },

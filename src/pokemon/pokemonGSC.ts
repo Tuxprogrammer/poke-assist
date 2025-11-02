@@ -10,7 +10,7 @@
  *   - Includes regional variants (Hisuian forms from Legends: Arceus)
  * @count 92 Pokémon (including forms)
  */
-import type { Pokemon } from './pokemon/pokemonData';
+import type { Pokemon } from './pokemonData';
 
 export const pokemonGSC: Pokemon[] = [
   { id: 152, name: 'chikorita', types: ['grass'] },

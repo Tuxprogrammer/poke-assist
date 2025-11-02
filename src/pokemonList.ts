@@ -1,16 +1,16 @@
 // Combined Pokémon list from all generations
 // Imports all regional Pokémon data and combines into a single comprehensive list
 
-import { pokemonRBGY } from './pokemonRBGY';
-import { pokemonGSC } from './pokemonGSC';
-import { pokemonRSE } from './pokemonRSE';
-import { pokemonDPPt } from './pokemonDPPt';
-import { pokemonBW } from './pokemonBW';
-import { pokemonXY } from './pokemonXY';
-import { pokemonSM } from './pokemonSM';
-import { pokemonSwSh } from './pokemonSwSh';
-import { pokemonSV } from './pokemonSV';
-import type { Pokemon } from './pokemonData';
+import { pokemonRBGY } from './pokemon/pokemonRBGY';
+import { pokemonGSC } from './pokemon/pokemonGSC';
+import { pokemonRSE } from './pokemon/pokemonRSE';
+import { pokemonDPPt } from './pokemon/pokemonDPPt';
+import { pokemonBW } from './pokemon/pokemonBW';
+import { pokemonXY } from './pokemon/pokemonXY';
+import { pokemonSM } from './pokemon/pokemonSM';
+import { pokemonSwSh } from './pokemon/pokemonSwSh';
+import { pokemonSV } from './pokemon/pokemonSV';
+import type { Pokemon } from './pokemon/pokemonData';
 
 /**
  * Complete Pokémon list containing all Pokémon from all generations and regions

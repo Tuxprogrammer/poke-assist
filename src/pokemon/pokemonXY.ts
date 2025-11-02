@@ -11,7 +11,7 @@
  *   - Retroactively retyped many Pokémon to include Fairy
  * @count 77 Pokémon (including forms and Mega Evolutions)
  */
-import type { Pokemon } from './pokemon/pokemonData';
+import type { Pokemon } from './pokemonData';
 
 export const pokemonXY: Pokemon[] = [
   {

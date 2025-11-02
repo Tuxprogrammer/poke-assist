@@ -10,7 +10,7 @@
  *   - Some Pokémon retroactively gained Fairy typing (Gen 6+)
  * @count 144 Pokémon (including forms)
  */
-import type { Pokemon } from './pokemon/pokemonData';
+import type { Pokemon } from './pokemonData';
 
 export const pokemonRBGY: Pokemon[] = [
   { id: 1, name: 'bulbasaur', types: ['grass', 'poison'] },
