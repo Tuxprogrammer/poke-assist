@@ -31,7 +31,7 @@ A Vue.js web application for Pok√©mon type effectiveness lookup. Search for Pok√
 1. Pull and run the pre-built Docker image:
 
 ```bash
-docker run -p 3000:3000 ghcr.io/tuxprogrammer/poke-assist:latest
+docker run -p 3000:80 ghcr.io/tuxprogrammer/poke-assist:latest
 ```
 
 2. Open your browser and navigate to `http://localhost:3000`
@@ -54,7 +54,7 @@ docker build -t poke-assist .
 3. Run the application in a Docker container:
 
 ```bash
-docker run -p 3000:3000 poke-assist
+docker run -p 3000:80 poke-assist
 ```
 
 4. Open your browser and navigate to `http://localhost:3000`
