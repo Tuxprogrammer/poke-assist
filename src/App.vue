@@ -7,27 +7,17 @@
 
     <div class="search-container">
       <div class="search-box">
-        <input
-          ref="searchInput"
-          v-model="searchQuery"
-          @input="onSearchInput"
-          @keydown="onKeyDown"
-          @focus="showSuggestions = true"
-          @blur="onBlur"
-          class="search-input"
-          type="text"
-          placeholder="Enter a Pokémon name..."
-          autocomplete="off"
-        />
-        
+        <input ref="searchInput" v-model="searchQuery" @input="onSearchInput" @keydown="onKeyDown"
+          @focus="showSuggestions = true" @blur="onBlur" class="search-input" type="text"
+          placeholder="Enter a Pokémon name..." autocomplete="off" />
+        <button @click="selectRandomPokemon" class="random-button" title="Pick a random Pokémon">
+          🎲
+        </button>
+
         <div v-if="showSuggestions && filteredPokemon.length > 0" class="suggestions">
-          <div
-            v-for="(pokemon, index) in filteredPokemon.slice(0, 10)"
-            :key="pokemon.id"
+          <div v-for="(pokemon, index) in filteredPokemon.slice(0, 10)" :key="pokemon.id"
             :class="['suggestion-item', { highlighted: index === highlightedIndex }]"
-            @mousedown="selectPokemon(pokemon)"
-            @mouseenter="highlightedIndex = index"
-          >
+            @mousedown="selectPokemon(pokemon)" @mouseenter="highlightedIndex = index">
             {{ getPokemonDisplayName(pokemon) }}
           </div>
         </div>
@@ -36,86 +26,67 @@
 
     <div v-if="selectedPokemon" class="pokemon-info">
       <h2 class="pokemon-name">{{ getPokemonDisplayName(selectedPokemon) }}</h2>
-      
+
       <div class="generation-selector">
         <div class="generation-label">Generation:</div>
         <div class="generation-buttons">
-          <button
-            v-for="gen in availableGenerations"
-            :key="gen"
+          <button v-for="gen in availableGenerations" :key="gen"
             :class="['generation-btn', `gen-${gen}`, { active: selectedGeneration === gen }]"
-            @click="selectedGeneration = gen"
-          >
+            @click="selectedGeneration = gen">
             {{ generationLabels[gen] }}
           </button>
         </div>
       </div>
-      
+
       <div class="types-container">
         <div class="effectiveness-title">Type(s) in Generation {{ selectedGeneration }}:</div>
         <div class="effectiveness-types">
-          <span
-            v-for="type in currentPokemonTypes"
-            :key="type"
-            :style="{ backgroundColor: getTypeColor(type) }"
-            class="type-badge"
-          >
+          <span v-for="type in currentPokemonTypes" :key="type" :style="{ backgroundColor: getTypeColor(type) }"
+            class="type-badge">
             {{ type }}
           </span>
         </div>
       </div>
 
       <div class="effectiveness-section" v-if="effectiveness?.superEffective.length ?? 0 > 0">
-        <div class="effectiveness-title">Super Effective Against {{ getPokemonDisplayName(selectedPokemon) }} (2x+ damage):</div>
+        <div class="effectiveness-title">Super Effective Against {{ getPokemonDisplayName(selectedPokemon) }} (2x+
+          damage):</div>
         <div class="effectiveness-types">
-          <span
-            v-for="type in effectiveness?.superEffective"
-            :key="type"
-            :style="{ backgroundColor: getTypeColor(type) }"
-            class="type-badge"
-          >
+          <span v-for="type in effectiveness?.superEffective" :key="type"
+            :style="{ backgroundColor: getTypeColor(type) }" class="type-badge">
             {{ type }}
           </span>
         </div>
       </div>
 
       <div class="effectiveness-section" v-if="effectiveness?.normal.length ?? 0 > 0">
-        <div class="effectiveness-title">Normal Effectiveness Against {{ getPokemonDisplayName(selectedPokemon) }} (1x damage):</div>
+        <div class="effectiveness-title">Normal Effectiveness Against {{ getPokemonDisplayName(selectedPokemon) }} (1x
+          damage):</div>
         <div class="effectiveness-types">
-          <span
-            v-for="type in effectiveness?.normal"
-            :key="type"
-            :style="{ backgroundColor: getTypeColor(type) }"
-            class="type-badge"
-          >
+          <span v-for="type in effectiveness?.normal" :key="type" :style="{ backgroundColor: getTypeColor(type) }"
+            class="type-badge">
             {{ type }}
           </span>
         </div>
       </div>
 
       <div class="effectiveness-section" v-if="effectiveness?.notVeryEffective.length ?? 0 > 0">
-        <div class="effectiveness-title">Not Very Effective Against {{ getPokemonDisplayName(selectedPokemon) }} (0.5x damage):</div>
+        <div class="effectiveness-title">Not Very Effective Against {{ getPokemonDisplayName(selectedPokemon) }} (0.5x
+          damage):</div>
         <div class="effectiveness-types">
-          <span
-            v-for="type in effectiveness?.notVeryEffective"
-            :key="type"
-            :style="{ backgroundColor: getTypeColor(type) }"
-            class="type-badge"
-          >
+          <span v-for="type in effectiveness?.notVeryEffective" :key="type"
+            :style="{ backgroundColor: getTypeColor(type) }" class="type-badge">
             {{ type }}
           </span>
         </div>
       </div>
 
       <div class="effectiveness-section" v-if="effectiveness?.noEffect.length ?? 0 > 0">
-        <div class="effectiveness-title">No Effect Against {{ getPokemonDisplayName(selectedPokemon) }} (0x damage):</div>
+        <div class="effectiveness-title">No Effect Against {{ getPokemonDisplayName(selectedPokemon) }} (0x damage):
+        </div>
         <div class="effectiveness-types">
-          <span
-            v-for="type in effectiveness?.noEffect"
-            :key="type"
-            :style="{ backgroundColor: getTypeColor(type) }"
-            class="type-badge"
-          >
+          <span v-for="type in effectiveness?.noEffect" :key="type" :style="{ backgroundColor: getTypeColor(type) }"
+            class="type-badge">
             {{ type }}
           </span>
         </div>
@@ -160,7 +131,7 @@ export default {
 
     const filteredPokemon: ComputedRef<Pokemon[]> = computed(() => {
       if (!searchQuery.value) return [];
-      
+
       const query = searchQuery.value.toLowerCase().trim();
       return pokemonList.filter((pokemon: Pokemon) =>
         pokemon.name.toLowerCase().includes(query)
@@ -168,10 +139,10 @@ export default {
         // Prioritize exact matches and matches at the beginning
         const aStartsWith = a.name.toLowerCase().startsWith(query);
         const bStartsWith = b.name.toLowerCase().startsWith(query);
-        
+
         if (aStartsWith && !bStartsWith) return -1;
         if (!aStartsWith && bStartsWith) return 1;
-        
+
         return a.name.localeCompare(b.name);
       });
     });
@@ -189,10 +160,10 @@ export default {
 
     const availableGenerations: ComputedRef<Generation[]> = computed(() => {
       if (!selectedPokemon.value) return [1, 2, 3, 'orre', 4, 5, 6, 7, 8, 9];
-      
+
       const pokemon = selectedPokemon.value;
       const generations: Generation[] = [];
-      
+
       // Determine the first generation this Pokémon appeared in based on ID
       let firstGeneration: number = 1;
       if (pokemon.id >= 152 && pokemon.id <= 251) firstGeneration = 2;
@@ -203,12 +174,12 @@ export default {
       else if (pokemon.id >= 722 && pokemon.id <= 809) firstGeneration = 7;
       else if (pokemon.id >= 810 && pokemon.id <= 898) firstGeneration = 8;
       else if (pokemon.id >= 906 && pokemon.id <= 1025) firstGeneration = 9;
-      
+
       // Add all generations from first appearance onwards
       for (let gen = firstGeneration; gen <= 9; gen++) {
         generations.push(gen as Generation);
       }
-      
+
       // Add Orre region if Pokémon existed in Gen 3 or earlier (Colosseum/XD only had Gen 1-3 Pokémon)
       if (firstGeneration <= 3) {
         // Insert Orre after Gen 3
@@ -217,7 +188,7 @@ export default {
           generations.splice(gen3Index + 1, 0, 'orre');
         }
       }
-      
+
       return generations;
     });
 
@@ -261,7 +232,7 @@ export default {
       searchQuery.value = pokemon.name;
       showSuggestions.value = false;
       highlightedIndex.value = -1;
-      
+
       // Auto-adjust generation selection if current generation is not available for this Pokémon
       nextTick(() => {
         const available = availableGenerations.value;
@@ -289,6 +260,15 @@ export default {
       return typeColors[type] || '#68A090';
     }
 
+    function selectRandomPokemon(): void {
+      if (pokemonList.length === 0) return;
+
+      const randomIndex = Math.floor(Math.random() * pokemonList.length);
+      const randomPokemon = pokemonList[randomIndex];
+
+      selectPokemon(randomPokemon);
+    }
+
     return {
       searchQuery,
       selectedPokemon,
@@ -303,6 +283,7 @@ export default {
       onSearchInput,
       onKeyDown,
       selectPokemon,
+      selectRandomPokemon,
       onBlur,
       capitalize,
       getTypeColor,
