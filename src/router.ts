@@ -12,6 +12,11 @@ const routes: RouteRecordRaw[] = [
         component: () => import('./views/PokemonDetail.vue'),
         props: true,
     },
+    {
+        path: '/type-charts',
+        name: 'TypeCharts',
+        component: () => import('./views/TypeChart.vue'),
+    },
 ];
 
 const router = createRouter({

@@ -19,6 +19,13 @@
             </div>
         </div>
 
+        <!-- Type Charts Button -->
+        <div class="type-charts-container">
+            <router-link to="/type-charts" class="type-charts-button">
+                📊 Type Charts
+            </router-link>
+        </div>
+
         <div v-if="searchQuery && filteredPokemon.length === 0" class="pokemon-info">
             <div class="loading">No Pokémon found matching "{{ searchQuery }}"</div>
         </div>
