@@ -8,11 +8,12 @@
     </header>
 
     <router-view />
+
+    <!-- Version display in bottom-right corner -->
+    <VersionDisplay />
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  name: 'App',
-};
+<script setup lang="ts">
+import VersionDisplay from './components/VersionDisplay.vue';
 </script>

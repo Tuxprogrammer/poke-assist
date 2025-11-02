@@ -16,6 +16,9 @@ export default [
         sourceType: 'module',
         project: './tsconfig.json',
       },
+      globals: {
+        ...globals.browser,
+      },
     },
     plugins: {
       '@typescript-eslint': tsPlugin,

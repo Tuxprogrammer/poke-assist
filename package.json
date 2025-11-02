@@ -8,7 +8,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .ts,.vue",
-    "lint:fix": "eslint . --ext .ts,.vue --fix"
+    "lint:fix": "eslint . --ext .ts,.vue --fix",
+    "docker:build": "docker build -t poke-assist .",
+    "docker:run": "docker run -p 8080:80 poke-assist"
   },
   "dependencies": {
     "vue": "^3.4.0",
