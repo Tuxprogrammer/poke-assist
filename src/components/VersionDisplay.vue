@@ -127,4 +127,19 @@ onMounted(async () => {
         box-shadow: 0 0 0 0 rgba(255, 140, 0, 0);
     }
 }
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .version-display {
+        bottom: 6px;
+        right: 6px;
+        font-size: 0.55rem;
+        padding: 2px 4px;
+        border-radius: 3px;
+    }
+
+    .version-label {
+        font-size: 0.55rem;
+    }
+}
 </style>

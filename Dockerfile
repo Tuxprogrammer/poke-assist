@@ -30,8 +30,8 @@ COPY --from=build /app/dist /usr/share/nginx/html
 # Copy VERSION file to nginx root for runtime access
 COPY --from=build /app/VERSION /usr/share/nginx/html/VERSION
 
-# Copy nginx configuration (optional - using default)
-# COPY nginx.conf /etc/nginx/nginx.conf
+# Copy nginx configuration for SPA routing
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expose port 80
 EXPOSE 80
