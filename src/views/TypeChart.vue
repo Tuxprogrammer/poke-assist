@@ -26,9 +26,13 @@
                         <thead>
                             <tr>
                                 <th class="corner-cell">
-                                    <div class="corner-labels">
+                                    <div class="corner-labels corner-labels-desktop">
                                         <span class="defending-label">Defending →</span>
                                         <span class="attacking-label">↓ Attacking</span>
+                                    </div>
+                                    <div class="corner-labels corner-labels-mobile">
+                                        <span class="defending-label">🛡️ →</span>
+                                        <span class="attacking-label">↓ ⚔️</span>
                                     </div>
                                 </th>
                                 <th v-for="defendingType in availableTypes" :key="`def-${defendingType}`"
