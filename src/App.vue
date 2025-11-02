@@ -28,7 +28,7 @@ async function checkForUpdates(): Promise<void> {
   try {
     // Get current version
     const currentVersionRaw = await getAppVersion();
-    const currentVersion = currentVersionRaw.toLowerCase().replace(/-dirty$/i, '');
+    const currentVersion = currentVersionRaw.toLowerCase();
 
     // Fetch the latest commit hash from the main branch
     const response = await fetch('https://api.github.com/repos/Tuxprogrammer/poke-assist/commits/main', {
@@ -44,14 +44,6 @@ async function checkForUpdates(): Promise<void> {
 
     const commitData = await response.json();
     const latestCommitHash = commitData.sha?.substring(0, 8).toLowerCase();
-
-    // Debug logging to see what we're comparing
-    console.log('Version comparison:', {
-      currentVersion,
-      latestCommitHash,
-      currentVersionRaw,
-      equal: currentVersion === latestCommitHash
-    });
 
     if (latestCommitHash && currentVersion !== latestCommitHash) {
       updateAvailable.value = true;

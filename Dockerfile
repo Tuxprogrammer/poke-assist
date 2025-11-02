@@ -18,11 +18,6 @@ COPY . .
 # Get git version and create VERSION file
 RUN git rev-parse --short=8 HEAD > VERSION || echo "unknown" > VERSION
 
-# Append -dirty to version if there are untracked changes
-RUN if [ -n "$(git status --porcelain)" ]; then \
-    sed -i 's/$/-dirty/' VERSION; \
-    fi
-
 # Build the application
 RUN npm run build
 
