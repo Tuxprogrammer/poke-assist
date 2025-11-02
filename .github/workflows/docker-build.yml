@@ -47,8 +47,16 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
+      - name: Trigger Watchtower Update
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: |
+          curl -H "Authorization: Bearer ${{ secrets.WATCHTOWER_TOKEN }}" \
+               -X POST ${{ secrets.WATCHTOWER_URL }}/v1/update
+        continue-on-error: true
+
       - name: Summary
         run: |
           echo "🐳 Docker image built and pushed successfully!" >> $GITHUB_STEP_SUMMARY
           echo "📦 Image: \`${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest\`" >> $GITHUB_STEP_SUMMARY
           echo "🔗 Registry: [GitHub Container Registry](https://github.com/${{ github.repository }}/pkgs/container/${{ github.event.repository.name }})" >> $GITHUB_STEP_SUMMARY
+          echo "🔄 Watchtower update triggered for automatic deployment" >> $GITHUB_STEP_SUMMARY
