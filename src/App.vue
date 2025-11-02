@@ -131,7 +131,7 @@
 <script>
 import { ref, computed, nextTick } from 'vue'
 import { typeColors, categorizeEffectiveness, getPokemonTypes, getPokemonDisplayName } from './pokemonData'
-import pokemonList from './pokemonList'
+import { pokemonList } from './pokemonList'
 
 export default {
   name: 'PokemonApp',
