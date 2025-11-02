@@ -10,7 +10,7 @@
     <router-view />
 
     <!-- Version display in bottom-right corner -->
-    <VersionDisplay :updateAvailable="updateAvailable" />
+    <VersionDisplay :updateAvailable="updateAvailable" :updateInfo="updateInfo" />
   </div>
 </template>
 
@@ -22,9 +22,16 @@ import { getAppVersion } from './utils/version';
 const SEARCH_HISTORY_KEY = 'poke-assist-search-history';
 const APP_VERSION_KEY = 'poke-assist-app-version';
 
-const updateAvailable = ref(false);
+interface UpdateInfo {
+  available: boolean;
+  currentVersion?: string;
+  latestVersion?: string;
+}
 
-async function checkForUpdates(): Promise<void> {
+const updateAvailable = ref(false);
+const updateInfo = ref<UpdateInfo>({ available: false });
+
+async function checkForUpdates(): Promise<UpdateInfo> {
   try {
     // Get current version
     const currentVersionRaw = await getAppVersion();
@@ -39,20 +46,31 @@ async function checkForUpdates(): Promise<void> {
 
     if (!response.ok) {
       console.warn('Failed to check for updates:', response.status);
-      return;
+      return { available: false };
     }
 
     const commitData = await response.json();
     const latestCommitHash = commitData.sha?.substring(0, 8).toLowerCase();
 
     if (latestCommitHash && currentVersion !== latestCommitHash) {
+      const result: UpdateInfo = {
+        available: true,
+        currentVersion,
+        latestVersion: latestCommitHash
+      };
       updateAvailable.value = true;
+      updateInfo.value = result;
       console.log(`Update available: ${currentVersion} → ${latestCommitHash}`);
+      return result;
     } else {
       console.log('No update needed - versions match');
+      const result: UpdateInfo = { available: false, currentVersion, latestVersion: latestCommitHash };
+      updateInfo.value = result;
+      return result;
     }
   } catch (error) {
     console.warn('Failed to check for updates:', error);
+    return { available: false };
   }
 }
 

@@ -9,12 +9,20 @@ import { ref, computed, onMounted } from 'vue';
 import { getAppVersion } from '../utils/version';
 
 // Props
+interface UpdateInfo {
+    available: boolean;
+    currentVersion?: string;
+    latestVersion?: string;
+}
+
 interface Props {
     updateAvailable?: boolean;
+    updateInfo?: UpdateInfo;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-    updateAvailable: false
+    updateAvailable: false,
+    updateInfo: () => ({ available: false })
 });
 
 const displayVersion = ref('...');
@@ -22,7 +30,16 @@ const isLoading = ref(true);
 
 const githubUrl = computed(() => {
     const cleanVersion = displayVersion.value.toLowerCase();
-    return `https://github.com/tuxprogrammer/poke-assist/tree/${cleanVersion}`;
+
+    // If update is available and we have version info, use comparison URL
+    if (props.updateAvailable && props.updateInfo?.currentVersion && props.updateInfo?.latestVersion) {
+        const baseUrl = 'https://github.com/Tuxprogrammer/poke-assist/compare/';
+        return `${baseUrl}${props.updateInfo.currentVersion}...${props.updateInfo.latestVersion}`;
+    }
+
+    // Otherwise use the tree URL
+    const baseUrl = 'https://github.com/tuxprogrammer/poke-assist/tree/';
+    return `${baseUrl}${cleanVersion}`;
 });
 
 onMounted(async () => {
