@@ -1,6 +1,19 @@
-// Generation 9 (906-1025) - Scarlet, Violet
-// Paldea Region Pokémon
-export const pokemonSV = [
+/**
+ * Generation 9 Pokémon Data
+ * 
+ * @description Scarlet, Violet - Paldea Region
+ * @generation 9
+ * @region Paldea
+ * @idRange 906-1025
+ * @features
+ *   - Introduced Terastalization mechanic
+ *   - Paldean regional variants and convergent species
+ *   - Open world gameplay with three storylines
+ * @count 107 Pokémon (including forms)
+ */
+import type { Pokemon } from './pokemonData';
+
+export const pokemonSV: Pokemon[] = [
   { id: 906, name: 'sprigatito', types: ['grass'] },
   { id: 907, name: 'floragato', types: ['grass'] },
   { id: 908, name: 'meowscarada', types: ['grass', 'dark'] },

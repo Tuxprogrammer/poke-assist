@@ -1,6 +1,107 @@
-// Generation 7 (722-809) - Sun, Moon, Ultra Sun, Ultra Moon
-// Alola Region Pokémon
-export const pokemonSM = [
+/**
+ * Generation 7 Pokémon Data
+ * 
+ * @description Sun, Moon, Ultra Sun, Ultra Moon - Alola Region
+ * @generation 7
+ * @region Alola
+ * @idRange 722-809
+ * @features
+ *   - Introduced Z-Moves and Regional Variants (Alolan forms)
+ *   - Ultra Necrozma and other Ultra forms
+ *   - Totem Pokémon with stat boosts
+ * @count 85 Pokémon (including forms and Alolan variants)
+ */
+import type { Pokemon } from './pokemonData';
+
+export const pokemonSM: Pokemon[] = [
+  {
+    id: 19.1,
+    name: 'rattata-alolan',
+    types: ['dark', 'normal'],
+    region: 'Alola',
+  },
+  {
+    id: 20.1,
+    name: 'raticate-alolan',
+    types: ['dark', 'normal'],
+    region: 'Alola',
+  },
+  {
+    id: 26.1,
+    name: 'raichu-alolan',
+    types: ['electric', 'psychic'],
+    region: 'Alola',
+  },
+  {
+    id: 27.1,
+    name: 'sandshrew-alolan',
+    types: ['ice', 'steel'],
+    region: 'Alola',
+  },
+  {
+    id: 28.1,
+    name: 'sandslash-alolan',
+    types: ['ice', 'steel'],
+    region: 'Alola',
+  },
+  { id: 37.1, name: 'vulpix-alolan', types: ['ice'], region: 'Alola' },
+  {
+    id: 38.1,
+    name: 'ninetales-alolan',
+    types: ['ice', 'fairy'],
+    region: 'Alola',
+  },
+  {
+    id: 50.1,
+    name: 'diglett-alolan',
+    types: ['ground', 'steel'],
+    region: 'Alola',
+  },
+  {
+    id: 51.1,
+    name: 'dugtrio-alolan',
+    types: ['ground', 'steel'],
+    region: 'Alola',
+  },
+  { id: 52.1, name: 'meowth-alolan', types: ['dark'], region: 'Alola' },
+  { id: 53.1, name: 'persian-alolan', types: ['dark'], region: 'Alola' },
+  {
+    id: 74.1,
+    name: 'geodude-alolan',
+    types: ['rock', 'electric'],
+    region: 'Alola',
+  },
+  {
+    id: 75.1,
+    name: 'graveler-alolan',
+    types: ['rock', 'electric'],
+    region: 'Alola',
+  },
+  {
+    id: 76.1,
+    name: 'golem-alolan',
+    types: ['rock', 'electric'],
+    region: 'Alola',
+  },
+  {
+    id: 88.1,
+    name: 'grimer-alolan',
+    types: ['poison', 'dark'],
+    region: 'Alola',
+  },
+  { id: 89.1, name: 'muk-alolan', types: ['poison', 'dark'], region: 'Alola' },
+  {
+    id: 103.1,
+    name: 'exeggutor-alolan',
+    types: ['grass', 'dragon'],
+    region: 'Alola',
+  },
+  {
+    id: 105.1,
+    name: 'marowak-alolan',
+    types: ['fire', 'ghost'],
+    region: 'Alola',
+  },
   { id: 722, name: 'rowlet', types: ['grass', 'flying'] },
   { id: 723, name: 'dartrix', types: ['grass', 'flying'] },
   { id: 724, name: 'decidueye', types: ['grass', 'ghost'] },
@@ -105,5 +206,5 @@ export const pokemonSM = [
     name: 'necrozma-ultra',
     types: ['psychic', 'dragon'],
     form: 'Ultra Necrozma',
-  },
+  }
 ];

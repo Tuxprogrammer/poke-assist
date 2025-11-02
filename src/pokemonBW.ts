@@ -1,6 +1,18 @@
-// Generation 5 (494-649) - Black, White, Black 2, White 2
-// Unova Region Pokémon
-export const pokemonBW = [
+/**
+ * Generation 5 Pokémon Data
+ * 
+ * @description Black, White, Black 2, White 2 - Unova Region
+ * @generation 5
+ * @region Unova
+ * @idRange 494-649
+ * @features
+ *   - First generation to introduce 150+ new Pokémon since Gen 1
+ *   - Includes retroactive Fairy typing for Cottonee/Whimsicott (Gen 6+)
+ * @count 154 Pokémon (including forms)
+ */
+import type { Pokemon } from './pokemonData';
+
+export const pokemonBW: Pokemon[] = [
   { id: 494, name: 'victini', types: ['psychic', 'fire'] },
   { id: 495, name: 'snivy', types: ['grass'] },
   { id: 496, name: 'servine', types: ['grass'] },
@@ -39,12 +51,6 @@ export const pokemonBW = [
   { id: 529, name: 'drilbur', types: ['ground'] },
   { id: 530, name: 'excadrill', types: ['ground', 'steel'] },
   { id: 531, name: 'audino', types: ['normal'] },
-  {
-    id: 531.1,
-    name: 'audino-mega',
-    types: ['normal', 'fairy'],
-    form: 'Mega Evolution',
-  },
   { id: 532, name: 'timburr', types: ['fighting'] },
   { id: 533, name: 'gurdurr', types: ['fighting'] },
   { id: 534, name: 'conkeldurr', types: ['fighting'] },
@@ -172,5 +178,5 @@ export const pokemonBW = [
   { id: 646, name: 'kyurem', types: ['dragon', 'ice'] },
   { id: 647, name: 'keldeo', types: ['water', 'fighting'] },
   { id: 648, name: 'meloetta', types: ['normal', 'psychic'] },
-  { id: 649, name: 'genesect', types: ['bug', 'steel'] },
+  { id: 649, name: 'genesect', types: ['bug', 'steel'] }
 ];

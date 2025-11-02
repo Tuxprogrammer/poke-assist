@@ -1,6 +1,18 @@
-// Generation 2 (152-251) - Gold, Silver, Crystal
-// Johto Region Pokémon
-export const pokemonGSC = [
+/**
+ * Generation 2 Pokémon Data
+ * 
+ * @description Gold, Silver, Crystal - Johto Region
+ * @generation 2
+ * @region Johto
+ * @idRange 152-251
+ * @features
+ *   - Introduced Steel and Dark types
+ *   - Includes regional variants (Hisuian forms from Legends: Arceus)
+ * @count 92 Pokémon (including forms)
+ */
+import type { Pokemon } from './pokemonData';
+
+export const pokemonGSC: Pokemon[] = [
   { id: 152, name: 'chikorita', types: ['grass'] },
   { id: 153, name: 'bayleef', types: ['grass'] },
   { id: 154, name: 'meganium', types: ['grass'] },
@@ -57,12 +69,6 @@ export const pokemonGSC = [
   { id: 179, name: 'mareep', types: ['electric'] },
   { id: 180, name: 'flaaffy', types: ['electric'] },
   { id: 181, name: 'ampharos', types: ['electric'] },
-  {
-    id: 181.1,
-    name: 'ampharos-mega',
-    types: ['electric', 'dragon'],
-    form: 'Mega Evolution',
-  },
   { id: 182, name: 'bellossom', types: ['grass'] },
   {
     id: 183,
@@ -97,12 +103,6 @@ export const pokemonGSC = [
   { id: 197, name: 'umbreon', types: ['dark'] },
   { id: 198, name: 'murkrow', types: ['dark', 'flying'] },
   { id: 199, name: 'slowking', types: ['water', 'psychic'] },
-  {
-    id: 199.1,
-    name: 'slowking-galarian',
-    types: ['poison', 'psychic'],
-    region: 'Galar',
-  },
   { id: 200, name: 'misdreavus', types: ['ghost'] },
   { id: 201, name: 'unown', types: ['psychic'] },
   { id: 202, name: 'wobbuffet', types: ['psychic'] },
@@ -112,12 +112,6 @@ export const pokemonGSC = [
   { id: 206, name: 'dunsparce', types: ['normal'] },
   { id: 207, name: 'gligar', types: ['ground', 'flying'] },
   { id: 208, name: 'steelix', types: ['steel', 'ground'] },
-  {
-    id: 208.1,
-    name: 'steelix-mega',
-    types: ['steel', 'ground'],
-    form: 'Mega Evolution',
-  },
   {
     id: 209,
     name: 'snubbull',
@@ -138,20 +132,8 @@ export const pokemonGSC = [
     region: 'Hisui',
   },
   { id: 212, name: 'scizor', types: ['bug', 'steel'] },
-  {
-    id: 212.1,
-    name: 'scizor-mega',
-    types: ['bug', 'steel'],
-    form: 'Mega Evolution',
-  },
   { id: 213, name: 'shuckle', types: ['bug', 'rock'] },
   { id: 214, name: 'heracross', types: ['bug', 'fighting'] },
-  {
-    id: 214.1,
-    name: 'heracross-mega',
-    types: ['bug', 'fighting'],
-    form: 'Mega Evolution',
-  },
   { id: 215, name: 'sneasel', types: ['dark', 'ice'] },
   {
     id: 215.1,
@@ -166,7 +148,6 @@ export const pokemonGSC = [
   { id: 220, name: 'swinub', types: ['ice', 'ground'] },
   { id: 221, name: 'piloswine', types: ['ice', 'ground'] },
   { id: 222, name: 'corsola', types: ['water', 'rock'] },
-  { id: 222.1, name: 'corsola-galarian', types: ['ghost'], region: 'Galar' },
   { id: 223, name: 'remoraid', types: ['water'] },
   { id: 224, name: 'octillery', types: ['water'] },
   { id: 225, name: 'delibird', types: ['ice', 'flying'] },
@@ -174,12 +155,6 @@ export const pokemonGSC = [
   { id: 227, name: 'skarmory', types: ['steel', 'flying'] },
   { id: 228, name: 'houndour', types: ['dark', 'fire'] },
   { id: 229, name: 'houndoom', types: ['dark', 'fire'] },
-  {
-    id: 229.1,
-    name: 'houndoom-mega',
-    types: ['dark', 'fire'],
-    form: 'Mega Evolution',
-  },
   { id: 230, name: 'kingdra', types: ['water', 'dragon'] },
   { id: 231, name: 'phanpy', types: ['ground'] },
   { id: 232, name: 'donphan', types: ['ground'] },
@@ -199,13 +174,7 @@ export const pokemonGSC = [
   { id: 246, name: 'larvitar', types: ['rock', 'ground'] },
   { id: 247, name: 'pupitar', types: ['rock', 'ground'] },
   { id: 248, name: 'tyranitar', types: ['rock', 'dark'] },
-  {
-    id: 248.1,
-    name: 'tyranitar-mega',
-    types: ['rock', 'dark'],
-    form: 'Mega Evolution',
-  },
   { id: 249, name: 'lugia', types: ['psychic', 'flying'] },
   { id: 250, name: 'ho-oh', types: ['fire', 'flying'] },
-  { id: 251, name: 'celebi', types: ['psychic', 'grass'] },
+  { id: 251, name: 'celebi', types: ['psychic', 'grass'] }
 ];

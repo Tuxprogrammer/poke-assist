@@ -1,6 +1,18 @@
-// Generation 4 (387-493) - Diamond, Pearl, Platinum
-// Sinnoh Region Pokémon
-export const pokemonDPPt = [
+/**
+ * Generation 4 Pokémon Data
+ * 
+ * @description Diamond, Pearl, Platinum - Sinnoh Region
+ * @generation 4
+ * @region Sinnoh
+ * @idRange 387-493
+ * @features
+ *   - Introduced physical/special split
+ *   - Origin forms for legendary Pokémon
+ * @count 105 Pokémon (including forms)
+ */
+import type { Pokemon } from './pokemonData';
+
+export const pokemonDPPt: Pokemon[] = [
   { id: 387, name: 'turtwig', types: ['grass'] },
   { id: 388, name: 'grotle', types: ['grass'] },
   { id: 389, name: 'torterra', types: ['grass', 'ground'] },
@@ -43,12 +55,6 @@ export const pokemonDPPt = [
   { id: 426, name: 'drifblim', types: ['ghost', 'flying'] },
   { id: 427, name: 'buneary', types: ['normal'] },
   { id: 428, name: 'lopunny', types: ['normal'] },
-  {
-    id: 428.1,
-    name: 'lopunny-mega',
-    types: ['normal', 'fighting'],
-    form: 'Mega Evolution',
-  },
   { id: 429, name: 'mismagius', types: ['ghost'] },
   { id: 430, name: 'honchkrow', types: ['dark', 'flying'] },
   { id: 431, name: 'glameow', types: ['normal'] },
@@ -71,21 +77,9 @@ export const pokemonDPPt = [
   { id: 443, name: 'gible', types: ['dragon', 'ground'] },
   { id: 444, name: 'gabite', types: ['dragon', 'ground'] },
   { id: 445, name: 'garchomp', types: ['dragon', 'ground'] },
-  {
-    id: 445.1,
-    name: 'garchomp-mega',
-    types: ['dragon', 'ground'],
-    form: 'Mega Evolution',
-  },
   { id: 446, name: 'munchlax', types: ['normal'] },
   { id: 447, name: 'riolu', types: ['fighting'] },
   { id: 448, name: 'lucario', types: ['fighting', 'steel'] },
-  {
-    id: 448.1,
-    name: 'lucario-mega',
-    types: ['fighting', 'steel'],
-    form: 'Mega Evolution',
-  },
   { id: 449, name: 'hippopotas', types: ['ground'] },
   { id: 450, name: 'hippowdon', types: ['ground'] },
   { id: 451, name: 'skorupi', types: ['poison', 'bug'] },
@@ -98,12 +92,6 @@ export const pokemonDPPt = [
   { id: 458, name: 'mantyke', types: ['water', 'flying'] },
   { id: 459, name: 'snover', types: ['grass', 'ice'] },
   { id: 460, name: 'abomasnow', types: ['grass', 'ice'] },
-  {
-    id: 460.1,
-    name: 'abomasnow-mega',
-    types: ['grass', 'ice'],
-    form: 'Mega Evolution',
-  },
   { id: 461, name: 'weavile', types: ['dark', 'ice'] },
   { id: 462, name: 'magnezone', types: ['electric', 'steel'] },
   { id: 463, name: 'lickilicky', types: ['normal'] },
@@ -124,12 +112,6 @@ export const pokemonDPPt = [
   { id: 473, name: 'mamoswine', types: ['ice', 'ground'] },
   { id: 474, name: 'porygon-z', types: ['normal'] },
   { id: 475, name: 'gallade', types: ['psychic', 'fighting'] },
-  {
-    id: 475.1,
-    name: 'gallade-mega',
-    types: ['psychic', 'fighting'],
-    form: 'Mega Evolution',
-  },
   { id: 476, name: 'probopass', types: ['rock', 'steel'] },
   { id: 477, name: 'dusknoir', types: ['ghost'] },
   { id: 478, name: 'froslass', types: ['ice', 'ghost'] },
@@ -147,5 +129,5 @@ export const pokemonDPPt = [
   { id: 490, name: 'manaphy', types: ['water'] },
   { id: 491, name: 'darkrai', types: ['dark'] },
   { id: 492, name: 'shaymin', types: ['grass'] },
-  { id: 493, name: 'arceus', types: ['normal'] },
+  { id: 493, name: 'arceus', types: ['normal'] }
 ];

@@ -1,6 +1,288 @@
-// Generation 6 (650-721) - X, Y, Omega Ruby, Alpha Sapphire
-// Kalos Region Pokémon and Fairy Type Introduction
-export const pokemonXY = [
+/**
+ * Generation 6 Pokémon Data
+ *
+ * @description X, Y, Omega Ruby, Alpha Sapphire - Kalos Region
+ * @generation 6
+ * @region Kalos
+ * @idRange 650-721
+ * @features
+ *   - Introduced Fairy type and Mega Evolution
+ *   - 3D graphics transition
+ *   - Retroactively retyped many Pokémon to include Fairy
+ * @count 77 Pokémon (including forms and Mega Evolutions)
+ */
+import type { Pokemon } from './pokemonData';
+
+export const pokemonXY: Pokemon[] = [
+  {
+    id: 3.1,
+    name: 'venusaur-mega',
+    types: ['grass', 'poison'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 6.1,
+    name: 'charizard-mega-x',
+    types: ['fire', 'dragon'],
+    form: 'Mega Evolution X',
+  },
+  {
+    id: 6.2,
+    name: 'charizard-mega-y',
+    types: ['fire', 'flying'],
+    form: 'Mega Evolution Y',
+  },
+  { id: 9.1, name: 'blastoise-mega', types: ['water'], form: 'Mega Evolution' },
+  {
+    id: 15.1,
+    name: 'beedrill-mega',
+    types: ['bug', 'poison'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 18.1,
+    name: 'pidgeot-mega',
+    types: ['normal', 'flying'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 65.1,
+    name: 'alakazam-mega',
+    types: ['psychic'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 80.1,
+    name: 'slowbro-mega',
+    types: ['water', 'psychic'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 94.1,
+    name: 'gengar-mega',
+    types: ['ghost', 'poison'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 115.1,
+    name: 'kangaskhan-mega',
+    types: ['normal'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 127.1,
+    name: 'pinsir-mega',
+    types: ['bug', 'flying'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 130.1,
+    name: 'gyarados-mega',
+    types: ['water', 'dark'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 142.1,
+    name: 'aerodactyl-mega',
+    types: ['rock', 'flying'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 150.1,
+    name: 'mewtwo-mega-x',
+    types: ['psychic', 'fighting'],
+    form: 'Mega Evolution X',
+  },
+  {
+    id: 150.2,
+    name: 'mewtwo-mega-y',
+    types: ['psychic'],
+    form: 'Mega Evolution Y',
+  },
+  {
+    id: 181.1,
+    name: 'ampharos-mega',
+    types: ['electric', 'dragon'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 208.1,
+    name: 'steelix-mega',
+    types: ['steel', 'ground'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 212.1,
+    name: 'scizor-mega',
+    types: ['bug', 'steel'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 214.1,
+    name: 'heracross-mega',
+    types: ['bug', 'fighting'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 229.1,
+    name: 'houndoom-mega',
+    types: ['dark', 'fire'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 248.1,
+    name: 'tyranitar-mega',
+    types: ['rock', 'dark'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 254.1,
+    name: 'sceptile-mega',
+    types: ['grass', 'dragon'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 257.1,
+    name: 'blaziken-mega',
+    types: ['fire', 'fighting'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 260.1,
+    name: 'swampert-mega',
+    types: ['water', 'ground'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 282.1,
+    name: 'gardevoir-mega',
+    types: ['psychic', 'fairy'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 302.1,
+    name: 'sableye-mega',
+    types: ['dark', 'ghost'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 303.1,
+    name: 'mawile-mega',
+    types: ['steel', 'fairy'],
+    form: 'Mega Evolution',
+  },
+  { id: 306.1, name: 'aggron-mega', types: ['steel'], form: 'Mega Evolution' },
+  {
+    id: 308.1,
+    name: 'medicham-mega',
+    types: ['fighting', 'psychic'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 310.1,
+    name: 'manectric-mega',
+    types: ['electric'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 319.1,
+    name: 'sharpedo-mega',
+    types: ['water', 'dark'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 323.1,
+    name: 'camerupt-mega',
+    types: ['fire', 'ground'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 334.1,
+    name: 'altaria-mega',
+    types: ['dragon', 'fairy'],
+    form: 'Mega Evolution',
+  },
+  { id: 354.1, name: 'banette-mega', types: ['ghost'], form: 'Mega Evolution' },
+  { id: 359.1, name: 'absol-mega', types: ['dark'], form: 'Mega Evolution' },
+  { id: 362.1, name: 'glalie-mega', types: ['ice'], form: 'Mega Evolution' },
+  {
+    id: 373.1,
+    name: 'salamence-mega',
+    types: ['dragon', 'flying'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 376.1,
+    name: 'metagross-mega',
+    types: ['steel', 'psychic'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 380.1,
+    name: 'latias-mega',
+    types: ['dragon', 'psychic'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 381.1,
+    name: 'latios-mega',
+    types: ['dragon', 'psychic'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 382.1,
+    name: 'kyogre-primal',
+    types: ['water'],
+    form: 'Primal Reversion',
+  },
+  {
+    id: 383.1,
+    name: 'groudon-primal',
+    types: ['ground', 'fire'],
+    form: 'Primal Reversion',
+  },
+  {
+    id: 384.1,
+    name: 'rayquaza-mega',
+    types: ['dragon', 'flying'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 428.1,
+    name: 'lopunny-mega',
+    types: ['normal', 'fighting'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 445.1,
+    name: 'garchomp-mega',
+    types: ['dragon', 'ground'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 448.1,
+    name: 'lucario-mega',
+    types: ['fighting', 'steel'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 460.1,
+    name: 'abomasnow-mega',
+    types: ['grass', 'ice'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 475.1,
+    name: 'gallade-mega',
+    types: ['psychic', 'fighting'],
+    form: 'Mega Evolution',
+  },
+  {
+    id: 531.1,
+    name: 'audino-mega',
+    types: ['normal', 'fairy'],
+    form: 'Mega Evolution',
+  },
   { id: 650, name: 'chespin', types: ['grass'] },
   { id: 651, name: 'quilladin', types: ['grass'] },
   { id: 652, name: 'chesnaught', types: ['grass', 'fighting'] },

@@ -1,6 +1,89 @@
-// Generation 8 (810-898) - Sword, Shield, Brilliant Diamond, Shining Pearl, Legends: Arceus
-// Galar Region Pokémon
-export const pokemonSwSh = [
+/**
+ * Generation 8 Pokémon Data
+ * 
+ * @description Sword, Shield, Brilliant Diamond, Shining Pearl, Legends: Arceus - Galar/Hisui Regions
+ * @generation 8
+ * @region Galar/Hisui
+ * @idRange 810-905
+ * @features
+ *   - Introduced Dynamax/Gigantamax mechanics
+ *   - Galarian and Hisuian regional variants
+ *   - New evolution methods and Noble Pokémon
+ * @count 93 Pokémon (including forms)
+ */
+import type { Pokemon } from './pokemonData';
+
+export const pokemonSwSh: Pokemon[] = [
+  { id: 52.2, name: 'meowth-galarian', types: ['steel'], region: 'Galar' },
+  { id: 77.1, name: 'ponyta-galarian', types: ['psychic'], region: 'Galar' },
+  {
+    id: 78.1,
+    name: 'rapidash-galarian',
+    types: ['psychic', 'fairy'],
+    region: 'Galar',
+  },
+  { id: 79.1, name: 'slowpoke-galarian', types: ['psychic'], region: 'Galar' },
+  {
+    id: 80.2,
+    name: 'slowbro-galarian',
+    types: ['poison', 'psychic'],
+    region: 'Galar',
+  },
+  {
+    id: 83.1,
+    name: 'farfetchd-galarian',
+    types: ['fighting'],
+    region: 'Galar',
+  },
+  {
+    id: 110.1,
+    name: 'weezing-galarian',
+    types: ['poison', 'fairy'],
+    region: 'Galar',
+  },
+  {
+    id: 122.1,
+    name: 'mr-mime-galarian',
+    types: ['ice', 'psychic'],
+    region: 'Galar',
+  },
+  {
+    id: 144.1,
+    name: 'articuno-galarian',
+    types: ['psychic', 'flying'],
+    region: 'Galar',
+  },
+  {
+    id: 145.1,
+    name: 'zapdos-galarian',
+    types: ['fighting', 'flying'],
+    region: 'Galar',
+  },
+  {
+    id: 146.1,
+    name: 'moltres-galarian',
+    types: ['dark', 'flying'],
+    region: 'Galar',
+  },
+  {
+    id: 199.1,
+    name: 'slowking-galarian',
+    types: ['poison', 'psychic'],
+    region: 'Galar',
+  },
+  { id: 222.1, name: 'corsola-galarian', types: ['ghost'], region: 'Galar' },
+  {
+    id: 263.1,
+    name: 'zigzagoon-galarian',
+    types: ['dark', 'normal'],
+    region: 'Galar',
+  },
+  {
+    id: 264.1,
+    name: 'linoone-galarian',
+    types: ['dark', 'normal'],
+    region: 'Galar',
+  },
   { id: 810, name: 'grookey', types: ['grass'] },
   { id: 811, name: 'thwackey', types: ['grass'] },
   { id: 812, name: 'rillaboom', types: ['grass'] },
@@ -107,5 +190,5 @@ export const pokemonSwSh = [
   { id: 895, name: 'regidrago', types: ['dragon'] },
   { id: 896, name: 'glastrier', types: ['ice'] },
   { id: 897, name: 'spectrier', types: ['ghost'] },
-  { id: 898, name: 'calyrex', types: ['psychic', 'grass'] },
+  { id: 898, name: 'calyrex', types: ['psychic', 'grass'] }
 ];
