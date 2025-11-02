@@ -280,14 +280,15 @@ function getTypesForGeneration(generation: Generation): PokemonType[] {
     availableTypes.push('dark', 'steel');
   }
 
+  // Orre region (Colosseum/XD) is Gen 3, so includes Dark, Steel, and Shadow types
+  if (generation === 'orre') {
+    availableTypes.push('dark', 'steel');
+    availableTypes.push('shadow');
+  }
+
   // Fairy type added in Generation 6
   if (typeof generation === 'number' && generation >= 6) {
     availableTypes.push('fairy');
-  }
-
-  // Shadow type only exists in Orre region (Colosseum/XD)
-  if (generation === 'orre') {
-    availableTypes.push('shadow');
   }
 
   return availableTypes;
