@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poke-Assist - Type Effectiveness Lookup</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #2d3748;
+      min-height: 100vh;
+      color: #e2e8f0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .header h1 {
+      color: #f7fafc;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .header p {
+      color: #cbd5e0;
+      font-size: 1.1rem;
+    }
+
+    .search-container {
+      background: #4a5568;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      margin-bottom: 2rem;
+    }
+
+    .search-box {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      border: 2px solid #718096;
+      border-radius: 10px;
+      outline: none;
+      transition: border-color 0.3s;
+      background: #2d3748;
+      color: #e2e8f0;
+    }
+
+    .search-input:focus {
+      border-color: #63b3ed;
+    }
+
+    .suggestions {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #2d3748;
+      border: 1px solid #718096;
+      border-radius: 0 0 10px 10px;
+      max-height: 200px;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+
+    .suggestion-item {
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      border-bottom: 1px solid #4a5568;
+      color: #e2e8f0;
+    }
+
+    .suggestion-item:hover,
+    .suggestion-item.highlighted {
+      background-color: #4a5568;
+    }
+
+    .pokemon-info {
+      background: #4a5568;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+
+    .pokemon-name {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-align: center;
+      text-transform: capitalize;
+      color: #f7fafc;
+    }
+
+    .types-container {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .type-badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      margin: 0.25rem;
+      border-radius: 20px;
+      color: white;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .effectiveness-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .effectiveness-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #e2e8f0;
+    }
+
+    .effectiveness-types {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .loading {
+      text-align: center;
+      color: #a0aec0;
+      font-style: italic;
+    }
+
+    .generation-selector {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .generation-label {
+      color: #e2e8f0;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .generation-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .generation-btn {
+      padding: 0.5rem 0.75rem;
+      border: 2px solid #ffffff;
+      border-radius: 20px;
+      background: #2d3748;
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      min-width: 3.5rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .generation-btn:hover {
+      border-color: #ffffff;
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .generation-btn.active {
+      background: #3182ce;
+      border-color: #3182ce;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(49, 130, 206, 0.3);
+    }
+
+    .generation-btn.active:hover {
+      background: #2c5282;
+      border-color: #2c5282;
+    }
+
+    /* Generation-specific gradients */
+    .generation-btn.gen-1 {
+      background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+      border-color: #ffffff;
+    }
+
+    .generation-btn.gen-1:hover {
+      background: linear-gradient(135deg, #ff5252 0%, #26c6da 100%);
+      border-color: #ffffff;
+    }
+
+    .generation-btn.gen-2 {
+      background: linear-gradient(135deg, #ffd700 0%, #c0c0c0 100%);
+      border-color: #ffffff;
+    }
+
+    .generation-btn.gen-2:hover {
+      background: linear-gradient(135deg, #ffcc02 0%, #b0b0b0 100%);
+      border-color: #ffffff;
+    }
+
+    .generation-btn.gen-3 {
+      background: linear-gradient(135deg, #cc0000 0%, #0066cc 50%, #00cc66 100%);
+      border-color: #ffffff;
+    }
+
+    .generation-btn.gen-3:hover {
+      background: linear-gradient(135deg, #aa0000 0%, #004499 50%, #00aa55 100%);
+      border-color: #ffffff;
+    }
+
+    .generation-btn.gen-orre {
+      background: linear-gradient(135deg, #dc143c 0%, #4b0082 100%);
+      border-color: #ffffff;
+    }
+
+    .generation-btn.gen-orre:hover {
+      background: linear-gradient(135deg, #b71c1c 0%, #6a1b9a 100%);
+      border-color: #ffffff;
+    }
+
+    .generation-btn.gen-4 {
+      background: linear-gradient(135deg, #87ceeb 0%, #ffc0cb 100%);
+      border-color: #ffffff;
+    }
+
+    .generation-btn.gen-4:hover {
+      background: linear-gradient(135deg, #4682b4 0%, #ff91a4 100%);
+      border-color: #ffffff;
+    }
+
+    .generation-btn.gen-5 {
+      background: linear-gradient(135deg, #2c3e50 0%, #ecf0f1 100%);
+      border-color: #ffffff;
+    }
+
+    .generation-btn.gen-5:hover {
+      background: linear-gradient(135deg, #1a252f 0%, #d5dbdb 100%);
+      border-color: #ffffff;
+    }
+
+    .generation-btn.gen-6 {
+      background: linear-gradient(135deg, #0066cc 0%, #ff6600 100%);
+      border-color: #ffffff;
+    }
+
+    .generation-btn.gen-6:hover {
+      background: linear-gradient(135deg, #004499 0%, #cc4400 100%);
+      border-color: #ffffff;
+    }
+
+    .generation-btn.gen-7 {
+      background: linear-gradient(135deg, #ef810e 0%, #e5de44 50%, #1c375c 100%);
+      border-color: #ffffff;
+    }
+
+    .generation-btn.gen-7:hover {
+      background: linear-gradient(135deg, #e5de44 0%, #ef810e 50%, #151633 100%);
+      border-color: #ffffff;
+    }
+
+    .generation-btn.gen-8 {
+      background: linear-gradient(135deg, #00A1E9 0%, #BF004F 100%);
+      border-color: #ffffff;
+    }
+
+    .generation-btn.gen-8:hover {
+      background: linear-gradient(135deg, #0080B8 0%, #9A003D 100%);
+      border-color: #ffffff;
+    }
+
+    .generation-btn.gen-9 {
+      background: linear-gradient(135deg, #ff4500 0%, #9932cc 100%);
+      border-color: #ffffff;
+    }
+
+    .generation-btn.gen-9:hover {
+      background: linear-gradient(135deg, #cc3300 0%, #7a2a99 100%);
+      border-color: #ffffff;
+    }
+
+    /* Override active state for generation buttons */
+    .generation-btn.active.gen-1,
+    .generation-btn.active.gen-2,
+    .generation-btn.active.gen-3,
+    .generation-btn.active.gen-orre,
+    .generation-btn.active.gen-4,
+    .generation-btn.active.gen-5,
+    .generation-btn.active.gen-6,
+    .generation-btn.active.gen-7,
+    .generation-btn.active.gen-8,
+    .generation-btn.active.gen-9 {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 0 3px rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
