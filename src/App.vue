@@ -45,9 +45,19 @@ async function checkForUpdates(): Promise<void> {
     const commitData = await response.json();
     const latestCommitHash = commitData.sha?.substring(0, 8).toLowerCase();
 
+    // Debug logging to see what we're comparing
+    console.log('Version comparison:', {
+      currentVersion,
+      latestCommitHash,
+      currentVersionRaw,
+      equal: currentVersion === latestCommitHash
+    });
+
     if (latestCommitHash && currentVersion !== latestCommitHash) {
       updateAvailable.value = true;
       console.log(`Update available: ${currentVersion} → ${latestCommitHash}`);
+    } else {
+      console.log('No update needed - versions match');
     }
   } catch (error) {
     console.warn('Failed to check for updates:', error);
