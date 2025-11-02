@@ -1,6 +1,6 @@
 /**
  * Generation 2 Pokémon Data
- * 
+ *
  * @description Gold, Silver, Crystal - Johto Region
  * @generation 2
  * @region Johto
@@ -176,5 +176,5 @@ export const pokemonGSC: Pokemon[] = [
   { id: 248, name: 'tyranitar', types: ['rock', 'dark'] },
   { id: 249, name: 'lugia', types: ['psychic', 'flying'] },
   { id: 250, name: 'ho-oh', types: ['fire', 'flying'] },
-  { id: 251, name: 'celebi', types: ['psychic', 'grass'] }
+  { id: 251, name: 'celebi', types: ['psychic', 'grass'] },
 ];

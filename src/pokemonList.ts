@@ -14,10 +14,10 @@ import type { Pokemon } from './pokemon/pokemonData';
 
 /**
  * Complete Pokémon list containing all Pokémon from all generations and regions
- * 
+ *
  * Data includes:
  * - Generation 1: Red, Blue, Green, Yellow (Kanto) - IDs 1-151
- * - Generation 2: Gold, Silver, Crystal (Johto) - IDs 152-251  
+ * - Generation 2: Gold, Silver, Crystal (Johto) - IDs 152-251
  * - Generation 3: Ruby, Sapphire, Emerald (Hoenn) - IDs 252-386
  * - Generation 4: Diamond, Pearl, Platinum (Sinnoh) - IDs 387-493
  * - Generation 5: Black, White, Black 2, White 2 (Unova) - IDs 494-649
@@ -26,7 +26,7 @@ import type { Pokemon } from './pokemon/pokemonData';
  * - Generation 8: Sword, Shield, Brilliant Diamond, Shining Pearl (Galar) - IDs 810-905
  * - Generation 9: Scarlet, Violet (Paldea) - IDs 906-1025
  * - Orre Region: Colosseum, XD: Gale of Darkness (Shadow Pokémon)
- * 
+ *
  * Features:
  * - Regional variants (Alolan, Galarian, Hisuian, Paldean forms)
  * - Mega Evolutions
@@ -34,7 +34,7 @@ import type { Pokemon } from './pokemon/pokemonData';
  * - Shadow Pokémon from Orre region
  * - Form variations with proper type changes
  * - Generation-specific type assignments (e.g., Fairy type introduction in Gen 6)
- * 
+ *
  * @type {Pokemon[]} Array of all Pokémon data objects
  */
 export const pokemonList: Pokemon[] = ([

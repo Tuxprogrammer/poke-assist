@@ -1,6 +1,6 @@
 /**
  * Generation 1 Pokémon Data
- * 
+ *
  * @description Red, Blue, Green, Yellow - Kanto Region
  * @generation 1
  * @region Kanto
@@ -243,5 +243,5 @@ export const pokemonRBGY: Pokemon[] = [
   { id: 148, name: 'dragonair', types: ['dragon'] },
   { id: 149, name: 'dragonite', types: ['dragon', 'flying'] },
   { id: 150, name: 'mewtwo', types: ['psychic'] },
-  { id: 151, name: 'mew', types: ['psychic'] }
+  { id: 151, name: 'mew', types: ['psychic'] },
 ];

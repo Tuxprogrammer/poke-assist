@@ -1,5 +1,5 @@
 // TypeScript type definitions
-export type PokemonType = 
+export type PokemonType =
   | 'normal' | 'fire' | 'water' | 'electric' | 'grass' | 'ice'
   | 'fighting' | 'poison' | 'ground' | 'flying' | 'psychic' | 'bug'
   | 'rock' | 'ghost' | 'dragon' | 'dark' | 'steel' | 'fairy' | 'shadow';
@@ -195,7 +195,7 @@ export function getPokemonTypes(pokemon: Pokemon, generation: Generation = 9): P
   if (pokemon.generationTypes) {
     const availableGenerations = Object.keys(pokemon.generationTypes)
       .map(Number)
-      .filter((gen) => typeof generation === 'number' && gen <= generation)
+      .filter(gen => typeof generation === 'number' && gen <= generation)
       .sort((a, b) => b - a);
 
     if (availableGenerations.length > 0) {
@@ -237,7 +237,7 @@ const orreTypeChart = {
 export function getTypeEffectiveness(
   attackingType: PokemonType,
   defendingTypes: PokemonType[],
-  generation: Generation = 9
+  generation: Generation = 9,
 ): TypeEffectiveness {
   let effectiveness: number = 1;
 
@@ -273,7 +273,7 @@ function getTypesForGeneration(generation: Generation): PokemonType[] {
     'dragon',
   ];
 
-  let availableTypes: PokemonType[] = [...baseTypes];
+  const availableTypes: PokemonType[] = [...baseTypes];
 
   // Dark and Steel types added in Generation 2
   if (typeof generation === 'number' && generation >= 2) {
@@ -295,8 +295,8 @@ function getTypesForGeneration(generation: Generation): PokemonType[] {
 
 // Function to categorize all types by their effectiveness against a Pokemon
 export function categorizeEffectiveness(
-  defendingTypes: PokemonType[], 
-  generation: Generation = 9
+  defendingTypes: PokemonType[],
+  generation: Generation = 9,
 ): EffectivenessCategories {
   const categories: EffectivenessCategories = {
     noEffect: [],
@@ -312,7 +312,7 @@ export function categorizeEffectiveness(
     const effectiveness = getTypeEffectiveness(
       attackingType,
       defendingTypes,
-      generation
+      generation,
     );
 
     if (effectiveness === 0) {

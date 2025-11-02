@@ -1,6 +1,6 @@
 /**
  * Generation 9 Pokémon Data
- * 
+ *
  * @description Scarlet, Violet - Paldea Region
  * @generation 9
  * @region Paldea

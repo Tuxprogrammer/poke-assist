@@ -204,5 +204,5 @@ export const pokemonRSE: Pokemon[] = [
   { id: 383, name: 'groudon', types: ['ground'] },
   { id: 384, name: 'rayquaza', types: ['dragon', 'flying'] },
   { id: 385, name: 'jirachi', types: ['steel', 'psychic'] },
-  { id: 386, name: 'deoxys', types: ['psychic'] }
+  { id: 386, name: 'deoxys', types: ['psychic'] },
 ];

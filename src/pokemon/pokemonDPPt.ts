@@ -1,6 +1,6 @@
 /**
  * Generation 4 Pokémon Data
- * 
+ *
  * @description Diamond, Pearl, Platinum - Sinnoh Region
  * @generation 4
  * @region Sinnoh
@@ -129,5 +129,5 @@ export const pokemonDPPt: Pokemon[] = [
   { id: 490, name: 'manaphy', types: ['water'] },
   { id: 491, name: 'darkrai', types: ['dark'] },
   { id: 492, name: 'shaymin', types: ['grass'] },
-  { id: 493, name: 'arceus', types: ['normal'] }
+  { id: 493, name: 'arceus', types: ['normal'] },
 ];

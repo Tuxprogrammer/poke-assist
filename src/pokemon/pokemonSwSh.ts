@@ -1,6 +1,6 @@
 /**
  * Generation 8 Pokémon Data
- * 
+ *
  * @description Sword, Shield, Brilliant Diamond, Shining Pearl, Legends: Arceus - Galar/Hisui Regions
  * @generation 8
  * @region Galar/Hisui
@@ -190,5 +190,5 @@ export const pokemonSwSh: Pokemon[] = [
   { id: 895, name: 'regidrago', types: ['dragon'] },
   { id: 896, name: 'glastrier', types: ['ice'] },
   { id: 897, name: 'spectrier', types: ['ghost'] },
-  { id: 898, name: 'calyrex', types: ['psychic', 'grass'] }
+  { id: 898, name: 'calyrex', types: ['psychic', 'grass'] },
 ];

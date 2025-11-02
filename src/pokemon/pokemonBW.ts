@@ -1,6 +1,6 @@
 /**
  * Generation 5 Pokémon Data
- * 
+ *
  * @description Black, White, Black 2, White 2 - Unova Region
  * @generation 5
  * @region Unova
@@ -178,5 +178,5 @@ export const pokemonBW: Pokemon[] = [
   { id: 646, name: 'kyurem', types: ['dragon', 'ice'] },
   { id: 647, name: 'keldeo', types: ['water', 'fighting'] },
   { id: 648, name: 'meloetta', types: ['normal', 'psychic'] },
-  { id: 649, name: 'genesect', types: ['bug', 'steel'] }
+  { id: 649, name: 'genesect', types: ['bug', 'steel'] },
 ];

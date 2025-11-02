@@ -1,6 +1,6 @@
 /**
  * Generation 7 Pokémon Data
- * 
+ *
  * @description Sun, Moon, Ultra Sun, Ultra Moon - Alola Region
  * @generation 7
  * @region Alola
@@ -206,5 +206,5 @@ export const pokemonSM: Pokemon[] = [
     name: 'necrozma-ultra',
     types: ['psychic', 'dragon'],
     form: 'Ultra Necrozma',
-  }
+  },
 ];
