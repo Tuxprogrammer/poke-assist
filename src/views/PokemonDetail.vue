@@ -57,7 +57,7 @@
 
             <div class="effectiveness-section" v-if="effectiveness?.normal.length ?? 0 > 0">
                 <div class="effectiveness-title">Normal Effectiveness Against {{ getPokemonDisplayName(selectedPokemon)
-                    }} (1x
+                }} (1x
                     damage):</div>
                 <div class="effectiveness-types">
                     <span v-for="type in effectiveness?.normal" :key="type"
@@ -191,7 +191,7 @@ export default {
                 return [6]; // Generation 6 only (X/Y, Omega Ruby/Alpha Sapphire)
             }
             if (pokemon.form === 'Ash-Greninja') {
-                return [6, 9]; // Generation 7 onwards
+                return [6, 9]; // Generation 6 and 9 only
             }
             if (['Crowned Sword', 'Crowned Shield', 'Rapid Strike Style'].includes(pokemon.form || '')) {
                 return [8, 9]; // Generation 8 onwards
